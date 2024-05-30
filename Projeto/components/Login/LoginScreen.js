@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Alert, Text, Image, TouchableOpacity, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { View, Alert, Text, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { logar } from '../../servicos/requisicoesFirebase';
 import { EntradaTexto } from '../../components/EntradaTexto';
 import estilos from './estilos';
@@ -32,46 +32,43 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 50 : 0}
       style={estilos.container}
-      contentContainerStyle={estilos.keyboardAvoidingContainer}
     >
-      <ScrollView
-        contentContainerStyle={estilos.scrollViewContent}
-        showsVerticalScrollIndicator={false} // Oculta a barra de rolagem
-      >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={estilos.content}>
-            <Image source={require('../../assets/logo.png')} style={estilos.logo} />
-            <View style={estilos.formContainer}>
-              <EntradaTexto
-                label="E-mail"
-                value={email}
-                onChangeText={texto => setEmail(texto)}
-                error={statusError == 'email'}
-                messageError={menssagemError}
-              />
-              <EntradaTexto
-                label="Senha"
-                value={senha}
-                onChangeText={texto => setSenha(texto)}
-                secureTextEntry
-                error={statusError == 'senha'}
-                messageError={menssagemError}
-              />
-              <TouchableOpacity onPress={() => realizarLogin()} style={estilos.loginButton}>
-                <Text style={estilos.loginButtonText}>Entrar</Text>
-              </TouchableOpacity>
-              <View style={estilos.registerLink}>
-                <Text style={estilos.registerLinkText}>Ainda não tem uma conta?</Text>
-                <TouchableOpacity onPress={() => { navigation.navigate('RegisterScreen') }}>
-                  <Text style={estilos.registerButtonText}>Registre-se</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
+      <View style={estilos.content}>
+        <Text style={estilos.title}>Login</Text>
+        <Text style={estilos.subtitle}>Faça login com segurança na sua conta</Text>
+        <View style={estilos.formContainer}>
+          <EntradaTexto
+            label="E-mail"
+            value={email}
+            onChangeText={texto => setEmail(texto)}
+            error={statusError == 'email'}
+            messageError={menssagemError}
+            icon="email"
+          />
+          <EntradaTexto
+            label="Senha"
+            value={senha}
+            onChangeText={texto => setSenha(texto)}
+            secureTextEntry
+            error={statusError == 'senha'}
+            messageError={menssagemError}
+            icon="lock"
+          />
+          <TouchableOpacity onPress={() => realizarLogin()} style={estilos.loginButton}>
+            <Text style={estilos.loginButtonText}>Entrar</Text>
+          </TouchableOpacity>
+          <View style={estilos.registerLink}>
+            <Text style={estilos.registerLinkText}>Ainda não tem uma conta?</Text>
+            <TouchableOpacity onPress={() => { navigation.navigate('RegisterScreen') }}>
+              <Text style={estilos.registerButtonText}>Registre-se</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableWithoutFeedback>
-      </ScrollView>
+          <Text style={estilos.termsText}>By clicking Continue, you agree to our Terms of Service and Privacy Policy</Text>
+        </View>
+      </View>
     </KeyboardAvoidingView>
   );
 }
