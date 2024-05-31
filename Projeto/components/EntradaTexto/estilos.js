@@ -11,13 +11,13 @@ export default StyleSheet.create({
   icon: {
     position: 'absolute',
     left: 15,
-    top: 28,
+    top: 24,
     zIndex: 1,
   },
   eyeIcon: {
     position: 'absolute',
     right: 15,
-    top: 28,
+    top: 24,
     zIndex: 1,
   },
   input: {

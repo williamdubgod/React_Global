@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import {
   Text,
-  Image,
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
   ScrollView,
+  Platform,
+  View,
 } from 'react-native';
-import { EntradaTexto } from '../EntradaTexto';
+import { EntradaTexto } from '../../components/EntradaTexto';
 import estilos from './estilos';
 import { cadastrar } from '../../servicos/requisicoesFirebase';
 
-export default function RegisterScreen  ({ useNavigation }) {
+export default function RegisterScreen({ navigation }) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -56,49 +57,60 @@ export default function RegisterScreen  ({ useNavigation }) {
     <KeyboardAvoidingView
       style={estilos.container}
       behavior={Platform.OS === 'ios' ? 'padding' : null}
-      enabled
-      keyboardVerticalOffset={-100}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 50 : 0}
     >
-      <ScrollView contentContainerStyle={estilos.scrollContainer}>
-      <Image source={require('../../assets/logo.png')} style={estilos.logo} />
-        <EntradaTexto
-          label="Nome"
-          value={nome}
-          onChangeText={(text) => setNome(text)}
-          error={statusError === 'nome'}
-          messageError={mensagemError}
-        />
-        <EntradaTexto
-          label="Email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          error={statusError === 'email'}
-          messageError={mensagemError}
-        />
-        <EntradaTexto
-          label="Senha"
-          value={senha}
-          onChangeText={(text) => setSenha(text)}
-          error={statusError === 'senha'}
-          secureTextEntry
-          messageError={mensagemError}
-        />
-        <EntradaTexto
-          label="Confirmar Senha"
-          value={confirmaSenha}
-          onChangeText={(text) => setConfirmaSenha(text)}
-          error={statusError === 'confirmaSenha'}
-          secureTextEntry
-          messageError={mensagemError}
-        />
-        <TouchableOpacity
-          style={estilos.loginButton}
-          onPress={() => realizarCadastro()}
-        >
-          <Text style={estilos.loginButtonText}>Cadastrar</Text>
-        </TouchableOpacity>
-      </ScrollView>
+      <View style={estilos.content}>
+        <Text style={estilos.title}>Cadastro</Text>
+        <Text style={estilos.subtitle}>Crie sua conta com segurança</Text>
+        <View contentContainerStyle={estilos.scrollContainer}>
+          <EntradaTexto
+            label="Nome"
+            value={nome}
+            icon="person"
+            onChangeText={(text) => setNome(text)}
+            error={statusError === 'nome'}
+            messageError={mensagemError}
+          />
+          <EntradaTexto
+            label="Email"
+            value={email}
+            icon="email"
+            onChangeText={(text) => setEmail(text)}
+            error={statusError === 'email'}
+            messageError={mensagemError}
+          />
+          <EntradaTexto
+            label="Senha"
+            value={senha}
+            icon="lock"
+            onChangeText={(text) => setSenha(text)}
+            error={statusError === 'senha'}
+            secureTextEntry
+            messageError={mensagemError}
+          />
+          <EntradaTexto
+            label="Confirmar Senha"
+            value={confirmaSenha}
+            icon="lock"
+            onChangeText={(text) => setConfirmaSenha(text)}
+            error={statusError === 'confirmaSenha'}
+            secureTextEntry
+            messageError={mensagemError}
+          />
+          <TouchableOpacity
+            style={estilos.loginButton}
+            onPress={realizarCadastro}
+          >
+            <Text style={estilos.loginButtonText}>Cadastrar</Text>
+          </TouchableOpacity>
+          <View style={estilos.registerLink}>
+            <Text style={estilos.registerLinkText}>Já tem uma conta?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+              <Text style={estilos.registerButtonText}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
     </KeyboardAvoidingView>
   );
-};
-
+}
