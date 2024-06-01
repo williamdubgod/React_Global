@@ -1,68 +1,67 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default StyleSheet.create({
-  container: {
+  outerContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fffff',
+  },
+  container: {
+    width: width * 0.9,
+    paddingVertical: 20,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
-    marginTop: 0.05 * width, 
+    marginBottom: 20,
   },
-  logo: {
-    width: 0.25 * width, 
-    height: 0.2 * width, 
+  greeting: {
+    fontSize: 16,
+    color: 'gray',
   },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 0.04 * width, 
+  username: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginVertical: 10,
   },
-  button: {
-    width: 0.45 * width, 
-    height: 0.20 * width, 
-    borderRadius: 0.025 * width, 
-    backgroundColor: '#F2F2F2',
-    flexDirection: 'row',
+  notificationIcon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconImage: {
+    width: 120,
+    height: 120,
+  },
+  myRecordsButton: {
+    backgroundColor: '#62CDFA',
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 0.05 * width, 
+    marginVertical: 20,
   },
-  buttonText: {
-    color: 'black',
-    marginRight: 0.01 * width, 
-  },
-  title: {
-    fontSize: 0.06 * width, 
+  myRecordsButtonText: {
+    color: '#fff',
+    fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 0.05 * width, 
   },
-  rectangleContainer: {
-    padding: 0.04 * width,
-  },
-  imageContainer: {
-    alignItems: 'center',
-    position: 'relative', 
-    marginTop: 15
-  },
-  image: {
-    width: '100%',
-    height: 0.35 * width,
-    borderRadius: 10,
-  },
-  imageText: {
-    position: 'absolute', 
-    bottom: 10, 
-    fontWeight: 'bold',
-    fontSize: 22,
+  recordsInfo: {
+    color: 'gray',
     textAlign: 'center',
-    color: 'white', 
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    width: '99%'
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });

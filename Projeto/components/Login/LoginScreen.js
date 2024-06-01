@@ -25,7 +25,7 @@ export default function LoginScreen({ navigation }) {
         setMenssagemError('E-Mail ou senha incorretos.')
         Alert.alert("E-Mail ou senha inválidos!")
       } else {
-        navigation.replace('UserScreen')
+        navigation.replace('HomeScreen')
       }
     }
   }
