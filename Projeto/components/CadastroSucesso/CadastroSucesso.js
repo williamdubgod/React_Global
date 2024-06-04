@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Footer from '../Rodape/Footer';
 import estilos from './estilos';
 
 const CadastroSucesso = () => {

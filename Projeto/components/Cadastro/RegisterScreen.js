@@ -4,13 +4,13 @@ import {
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
-  ScrollView,
   Platform,
   View,
 } from 'react-native';
 import { EntradaTexto } from '../../components/EntradaTexto';
 import estilos from './estilos';
 import { cadastrar } from '../../servicos/requisicoesFirebase';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function RegisterScreen({ navigation }) {
   const [nome, setNome] = useState('');
@@ -40,6 +40,7 @@ export default function RegisterScreen({ navigation }) {
     } else {
       const resultado = await cadastrar(email, senha);
       if (resultado === 'sucesso') {
+        await AsyncStorage.setItem('userName', nome);
         Alert.alert('Usuário cadastrado com sucesso');
         setEmail('');
         setSenha('');
@@ -48,6 +49,7 @@ export default function RegisterScreen({ navigation }) {
       } else {
         Alert.alert(resultado);
       }
+      
       setStatusError('');
       setMensagemError('');
     }
@@ -64,7 +66,7 @@ export default function RegisterScreen({ navigation }) {
         <Text style={estilos.subtitle}>Crie sua conta com segurança</Text>
         <View contentContainerStyle={estilos.scrollContainer}>
           <EntradaTexto
-            label="Nome"
+            label="Nome completo"
             value={nome}
             icon="person"
             onChangeText={(text) => setNome(text)}

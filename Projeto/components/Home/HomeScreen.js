@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
-import CategoryCard from '../CategoryCard/CategoryCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import estilos from './estilos';
-import Footer from '../Rodape/Footer'
+import Footer from '../Rodape/Footer';
+import CategoryCard from '../CategoryCard/CategoryCard';
 
 export default function HomeScreen() {
-
+  const [userName, setUserName] = useState('');
+  const [recordCount, setRecordCount] = useState(0);
   const navigation = useNavigation(); 
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const name = await AsyncStorage.getItem('userName');
+      setUserName(name || 'Usuário');
+    };
+
+    const fetchRecordCount = async () => {
+      const records = await AsyncStorage.getItem('orders');
+      const orders = records ? JSON.parse(records) : [];
+      setRecordCount(orders.length);
+    };
+
+    fetchUserName();
+    fetchRecordCount();
+  }, []);
 
   const handleRegisterPress = () => {
     navigation.navigate('CreateOrder'); 
@@ -23,7 +41,7 @@ export default function HomeScreen() {
         <View style={estilos.header}>
           <View>
             <Text style={estilos.greeting}>Bem-vindo</Text>
-            <Text style={estilos.username}>Vinicius Rodrigues</Text>
+            <Text style={estilos.username}>{userName}</Text>
           </View>
           <TouchableOpacity style={estilos.notificationIcon}>
             <Image source={require('../../assets/notification.png')} style={estilos.iconImage} />
@@ -45,7 +63,7 @@ export default function HomeScreen() {
           <Text style={estilos.myRecordsButtonText}>Meus Registros</Text>
         </TouchableOpacity>
         <Text style={estilos.recordsInfo}>
-          Você possui 1 registro. Informe-nos sobre novas ocorrências.
+          Você possui {recordCount} registro(s). Informe-nos sobre novas ocorrências.
         </Text>
       </View>
       <Footer />

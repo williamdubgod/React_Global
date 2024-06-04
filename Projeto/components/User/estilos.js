@@ -1,84 +1,116 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: '#f2f2f2',
     },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'black',
-        paddingVertical: 35, 
+        paddingVertical: 35,
         paddingHorizontal: 15,
         justifyContent: 'space-between',
+        backgroundColor: '#5DCCFC',
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        elevation: 10,
     },
     headerText: {
         color: '#fff',
-        marginLeft: 10,
         marginTop: 20,
-        fontSize: 20, 
+        fontSize: 24,
         fontWeight: 'bold',
     },
     userIcon: {
         marginTop: 20,
-        width: 60, 
-        height: 60, 
+        width: 60,
+        height: 60,
         borderRadius: 30,
+        borderColor: '#fff',
+        borderWidth: 2,
     },
     logoutButtonIcon: {
         marginTop: 20,
         color: '#fff',
-        fontSize: 24, 
+        fontSize: 24,
     },
-    form: {
-        paddingHorizontal: 20,
-        marginTop: 20,
+    profileInfoContainer: {
+        padding: 20,
+        margin: 10,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        elevation: 5,
     },
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginBottom: 20,
-        paddingHorizontal: 10,
-    },
-    botao: {
-        padding: 10,
-        alignItems: 'center',
-        borderRadius: 5,
-    },
-    botaoTexto: {
+    profileInfoTitle: {
+        fontSize: 20,
         fontWeight: 'bold',
-        color: 'white'
+        marginBottom: 10,
+        color: '#333',
     },
-    botaoDesativado: {
-        backgroundColor: 'gray',
-    },
-    botaoPreenchido: {
-        backgroundColor: 'green',
-    },
-    switchContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginBottom: 20,
-    },
-    switchButton: {
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        marginHorizontal: 10,
-        alignSelf: 'center',
-    },
-    switchButtonSelected: {
-        borderBottomWidth: 2,
-        borderBottomColor: 'green', // Cor da linha quando selecionado
-    },
-    switchButtonText: {
+    profileInfoItem: {
         fontSize: 16,
+        marginBottom: 5,
+        color: '#555',
     },
-    switchButtonTextSelected: {
-        color: 'black', // Cor do texto quando selecionado
+    profileInfoLabel: {
+        fontWeight: 'bold',
+        color: '#333',
     },
-    switchButtonTextUnselected: {
-        color: 'gray', // Cor do texto quando não selecionado
+    locationContainer: {
+        padding: 20,
+        margin: 10,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        elevation: 5,
+    },
+    locationTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#333',
+    },
+    configurationsContainer: {
+        padding: 20,
+        margin: 10,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        elevation: 5,
+    },
+    configurationsTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        color: '#333',
+    },
+    configurationItem: {
+        paddingVertical: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#eee',
+    },
+    configurationItemText: {
+        fontSize: 16,
+        color: '#555',
+    },
+    quickLinksContainer: {
+        padding: 20,
+        margin: 10,
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        elevation: 5,
+    },
+    quickLinksTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        color: '#333',
+    },
+    quickLinkItem: {
+        paddingVertical: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#eee',
+    },
+    quickLinkItemText: {
+        fontSize: 16,
+        color: '#555',
     },
 });
