@@ -19,7 +19,7 @@ const OrderList = ({ navigation }) => {
     React.useCallback(() => {
       fetchOrders();
     }, [])
-  );
+  ); 
 
   const handleDeleteOrder = async (id) => {
     const filteredOrders = orders.filter(order => order.id !== id);
@@ -35,7 +35,7 @@ const OrderList = ({ navigation }) => {
     <View style={estilos.orderContainer}>
       <Text style={estilos.orderName}>{item.name}</Text>
       <Text style={estilos.orderDetails}>{item.details}</Text>
-      <Text style={estilos.orderQuantity}>Quantidade: {item.quantity}</Text>
+      <Text style={estilos.orderQuantity}>Localização: {item.quantity}</Text>
       <View style={estilos.buttonGroup}>
         <TouchableOpacity style={estilos.editButton} onPress={() => handleEditOrder(item)}>
           <Text style={estilos.buttonText}>Editar</Text>
@@ -49,7 +49,7 @@ const OrderList = ({ navigation }) => {
 
   return (
     <View style={estilos.container}>
-      <Text style={estilos.title}>Meus Pedidos</Text>
+      <Text style={estilos.title}>Meus Registros</Text>
       <FlatList
         data={orders}
         renderItem={renderItem}

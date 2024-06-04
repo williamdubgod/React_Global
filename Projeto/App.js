@@ -10,6 +10,7 @@ import ProductsScreen from './components/BuscarProdutos/ProductsScreen';
 import UserScreen from './components/User/UserScreen';
 import CreateOrder from './components/CadastrarPedido/CreateOrder';
 import OrderList from './components/MeusPedidos/OrderList';
+import CadastroSucesso from './components/CadastroSucesso/CadastroSucesso';
 
 const Stack = createStackNavigator();
 
@@ -76,6 +77,13 @@ function App() {
         <Stack.Screen
           name="OrderList"
           component={OrderList}
+          options={({ navigation }) => ({
+            headerShown: false,
+          })}
+        />
+        <Stack.Screen
+          name="CadastroSucesso"
+          component={CadastroSucesso}
           options={({ navigation }) => ({
             headerShown: false,
           })}
