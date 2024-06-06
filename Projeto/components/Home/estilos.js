@@ -1,13 +1,13 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   outerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffff',
+    backgroundColor: '#f2f2f2',
   },
   container: {
     width: width * 0.9,
@@ -31,10 +31,6 @@ export default StyleSheet.create({
   notificationIcon: {
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  iconImage: {
-    width: 120,
-    height: 120,
   },
   myRecordsButton: {
     backgroundColor: '#62CDFA',

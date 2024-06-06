@@ -1,26 +1,17 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   cardContainer: {
     width: '100%',
-    borderRadius: 10,
+    borderRadius: 15,
     overflow: 'hidden',
     marginVertical: 10,
   },
-  cardBackground: {
-    width: '100%',
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-  cardImageBackground: {
-    resizeMode: 'cover',
-    borderRadius: 10,
-  },
   card: {
-    backgroundColor: 'rgba(242, 242, 242, 0)', 
-    borderRadius: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0)', 
+    borderRadius: 15,
     borderWidth: 1,
-    borderColor: '#f2f2f2',
+    borderColor: '#e6e6e6',
     padding: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -33,24 +24,25 @@ export default StyleSheet.create({
   cardTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#333',
   },
   cardDescription: {
-    fontSize: 14,
-    color: 'gray',
+    fontSize: 16,
+    color: '#666',
     marginVertical: 10,
   },
   button: {
     backgroundColor: '#fff',
-    borderRadius: 20,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    maxWidth: '58%', 
+    maxWidth: '74%', 
   },
   buttonText: {
-    color: '#000',
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   cardImage: {
     width: 100,

@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import estilos from './estilos';
 import Footer from '../Rodape/Footer';
 import CategoryCard from '../CategoryCard/CategoryCard';
+import { Icon } from 'react-native-elements';
 
 export default function HomeScreen() {
   const [userName, setUserName] = useState('');
@@ -44,7 +45,7 @@ export default function HomeScreen() {
             <Text style={estilos.username}>{userName}</Text>
           </View>
           <TouchableOpacity style={estilos.notificationIcon}>
-            <Image source={require('../../assets/notification.png')} style={estilos.iconImage} />
+            <Icon name="notifications" size={30} color="#62CDFA" />
           </TouchableOpacity>
         </View>
         <CategoryCard

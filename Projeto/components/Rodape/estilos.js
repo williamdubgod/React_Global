@@ -6,11 +6,20 @@ export default StyleSheet.create({
     footer: {
       flexDirection: 'row',
       justifyContent: 'space-around',
-      backgroundColor: '#202022',
+      backgroundColor: '#fff',
       padding: 0.075 * width, 
       position: 'absolute',
       bottom: 0,
       left: 0,
       right: 0,
     },
+    iconText: {
+      fontSize: 14,
+      marginTop: 5,
+      color: '#888',
+  },
+  activeText: {
+      color: '#62CDFA',
+      fontWeight: 'bold',
+  },
   });

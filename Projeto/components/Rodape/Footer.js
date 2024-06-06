@@ -1,43 +1,55 @@
-import { View, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+// Footer.js
+import React from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { Icon } from 'react-native-elements';
 import estilos from './estilos';
 
 export default function Footer() {
-
     const navigation = useNavigation();
+    const route = useRoute();
 
     const navigateToHome = () => {
-        navigation.navigate('HomeScreen'); 
+        navigation.navigate('HomeScreen');
     };
 
     const navigateToFornecedoresScreen = () => {
-        navigation.navigate('FornecedoresScreen'); 
-    };
-
-    const navigateToProductsScreen = () => {
-        navigation.navigate('ProductsScreen'); 
+        navigation.navigate('FornecedoresScreen');
     };
 
     const navigateToUser = () => {
-        navigation.navigate('UserScreen'); 
+        navigation.navigate('UserScreen');
     };
 
-    return(
+    return (
         <View style={estilos.footer}>
-            <TouchableOpacity onPress={navigateToHome}>
-                <Icon name="home" type="material-icons" size={30} color="white" />
-            </TouchableOpacity>
             <TouchableOpacity onPress={navigateToFornecedoresScreen}>
-                <Icon name="search" type="material-icons" size={30} color="white" />
+                <Icon
+                    name="leaderboard"
+                    type="material-icons"
+                    size={36}
+                    color={route.name === 'FornecedoresScreen' ? '#62CDFA' : 'black'}
+                />
+                <Text style={[estilos.iconText, route.name === 'FornecedoresScreen' ? estilos.activeText : null]}>Dados</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={navigateToProductsScreen}>
-                <Icon name="shopping-cart" type="material-icons" size={30} color="white" />
+            <TouchableOpacity onPress={navigateToHome}>
+                <Icon
+                    name="home"
+                    type="material-icons"
+                    size={36}
+                    color={route.name === 'HomeScreen' ? '#62CDFA' : 'black'}
+                />
+                <Text style={[estilos.iconText, route.name === 'HomeScreen' ? estilos.activeText : null]}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={navigateToUser}>
-                <Icon name="account-circle" type="material-icons" size={30} color="white" />
+                <Icon
+                    name="person"
+                    type="material-icons"
+                    size={36}
+                    color={route.name === 'UserScreen' ? '#62CDFA' : 'black'}
+                />
+                <Text style={[estilos.iconText, route.name === 'UserScreen' ? estilos.activeText : null]}>Conta</Text>
             </TouchableOpacity>
         </View>
-    )
+    );
 }
-
