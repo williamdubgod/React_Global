@@ -31,6 +31,12 @@ export default StyleSheet.create({
     color: '#666',
     marginVertical: 10,
   },
+  cardDescriptionEstatisticas: {
+    fontSize: 24,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginVertical: 21,
+  },
   button: {
     backgroundColor: '#fff',
     borderRadius: 25,
@@ -38,14 +44,14 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    maxWidth: '74%', 
+    maxWidth: '85%', 
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
   },
   cardImage: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
   },
 });

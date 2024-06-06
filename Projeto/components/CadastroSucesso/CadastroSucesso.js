@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import estilos from './estilos';
 
@@ -7,7 +7,7 @@ const CadastroSucesso = () => {
   const navigation = useNavigation();
 
   const handleGoToOrders = () => {
-    navigation.navigate('OrderList');
+    navigation.navigate('MeusRegistros');
   };
 
   return (

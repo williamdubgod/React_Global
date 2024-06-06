@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import Footer from '../Rodape/Footer';
+import { Icon } from 'react-native-elements';
 import estilos from './estilos';
 
-const OrderList = ({ navigation }) => {
+const MeusRegistros = ({ navigation }) => {
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
@@ -19,7 +20,7 @@ const OrderList = ({ navigation }) => {
     React.useCallback(() => {
       fetchOrders();
     }, [])
-  ); 
+  );
 
   const handleDeleteOrder = async (id) => {
     const filteredOrders = orders.filter(order => order.id !== id);
@@ -28,7 +29,7 @@ const OrderList = ({ navigation }) => {
   };
 
   const handleEditOrder = (order) => {
-    navigation.navigate('CreateOrder', { order });
+    navigation.navigate('FazerRegistro', { order });
   };
 
   const renderItem = ({ item }) => (
@@ -49,19 +50,26 @@ const OrderList = ({ navigation }) => {
 
   return (
     <View style={estilos.container}>
-      <Text style={estilos.title}>Meus Registros</Text>
-      <FlatList
-        data={orders}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        contentContainerStyle={estilos.listContainer}
-      />
-      <TouchableOpacity style={estilos.button} onPress={() => navigation.navigate('CreateOrder')}>
-        <Text style={estilos.buttonText}>Adicionar Novo Pedido</Text>
-      </TouchableOpacity>
+      <View style={estilos.header}>
+        <Text style={estilos.title}>Meus Registros</Text>
+      </View>
+      <View style={estilos.listContainer}>
+        <View style={estilos.searchContainer}>
+          <Icon name="search" type="material" color="#62CDFA" style={estilos.searchIcon} />
+          <TextInput 
+            style={estilos.searchInput}
+            placeholder="Buscar registros"
+          />
+        </View>
+        <FlatList
+          data={orders}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+      </View>
       <Footer />
     </View>
   );
 };
 
-export default OrderList;
+export default MeusRegistros;

@@ -1,20 +1,44 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet} from 'react-native';
 
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#f2f2f2',
+  },
+  header: {
+    backgroundColor: '#5DCCFC',
+    paddingVertical: 50,
+    paddingHorizontal: 15,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   title: {
-    marginTop: 50,
     fontSize: 28,
-    marginBottom: 20,
-    textAlign: 'center',
     fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+    color: '#fff', 
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginBottom: 20,
+  },
+  searchIcon: {
+    marginRight: 10,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#62CDFA',
   },
   listContainer: {
     flexGrow: 1,
+    padding: 20,
   },
   orderContainer: {
     backgroundColor: '#fff',

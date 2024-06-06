@@ -13,8 +13,8 @@ export default function Footer() {
         navigation.navigate('HomeScreen');
     };
 
-    const navigateToFornecedoresScreen = () => {
-        navigation.navigate('FornecedoresScreen');
+    const navigateToDadosEstatisticasScreen = () => {
+        navigation.navigate('DadosEstatisticasScreen');
     };
 
     const navigateToUser = () => {
@@ -23,14 +23,14 @@ export default function Footer() {
 
     return (
         <View style={estilos.footer}>
-            <TouchableOpacity onPress={navigateToFornecedoresScreen}>
+            <TouchableOpacity onPress={navigateToDadosEstatisticasScreen}>
                 <Icon
                     name="leaderboard"
                     type="material-icons"
                     size={36}
-                    color={route.name === 'FornecedoresScreen' ? '#62CDFA' : 'black'}
+                    color={route.name === 'DadosEstatisticasScreen' ? '#62CDFA' : 'black'}
                 />
-                <Text style={[estilos.iconText, route.name === 'FornecedoresScreen' ? estilos.activeText : null]}>Dados</Text>
+                <Text style={[estilos.iconText, route.name === 'DadosEstatisticasScreen' ? estilos.activeText : null]}>Dados</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={navigateToHome}>
                 <Icon

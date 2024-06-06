@@ -20,11 +20,11 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   greeting: {
-    fontSize: 16,
+    fontSize: 24,
     color: 'gray',
   },
   username: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 'bold',
     marginVertical: 10,
   },

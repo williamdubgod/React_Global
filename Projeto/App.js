@@ -5,12 +5,11 @@ import InicialPage from './components/Inicial/InicialPage';
 import LoginScreen from './components/Login/LoginScreen';
 import RegisterScreen from './components/Cadastro/RegisterScreen';
 import HomeScreen from './components/Home/HomeScreen';
-import FornecedoresScreen from './components/BuscarFornecedores/FornecedoresScreen';
-import ProductsScreen from './components/BuscarProdutos/ProductsScreen';
 import UserScreen from './components/User/UserScreen';
-import CreateOrder from './components/CadastrarPedido/CreateOrder';
-import OrderList from './components/MeusPedidos/OrderList';
+import FazerRegistro from './components/FazerRegistro/FazerRegistro';
+import MeusRegistros from './components/MeusRegistros/MeusRegistros';
 import CadastroSucesso from './components/CadastroSucesso/CadastroSucesso';
+import DadosEstatisticasScreen from './components/DadosEstatisticas/DadosEstatisticasScreen';
 
 const Stack = createStackNavigator();
 
@@ -47,20 +46,6 @@ function App() {
           })}
         />
         <Stack.Screen
-          name="FornecedoresScreen"
-          component={FornecedoresScreen}
-          options={({ navigation }) => ({
-            headerShown: false,
-          })}
-        />
-        <Stack.Screen
-          name="ProductsScreen"
-          component={ProductsScreen}
-          options={({ navigation }) => ({
-            headerShown: false,
-          })}
-        />
-        <Stack.Screen
           name="UserScreen"
           component={UserScreen}
           options={({ navigation }) => ({
@@ -68,15 +53,15 @@ function App() {
           })}
         />
         <Stack.Screen
-          name="CreateOrder"
-          component={CreateOrder}
+          name="FazerRegistro"
+          component={FazerRegistro}
           options={({ navigation }) => ({
             headerShown: false,
           })}
         />
         <Stack.Screen
-          name="OrderList"
-          component={OrderList}
+          name="MeusRegistros"
+          component={MeusRegistros}
           options={({ navigation }) => ({
             headerShown: false,
           })}
@@ -84,6 +69,13 @@ function App() {
         <Stack.Screen
           name="CadastroSucesso"
           component={CadastroSucesso}
+          options={({ navigation }) => ({
+            headerShown: false,
+          })}
+        />
+         <Stack.Screen
+          name="DadosEstatisticasScreen"
+          component={DadosEstatisticasScreen}
           options={({ navigation }) => ({
             headerShown: false,
           })}

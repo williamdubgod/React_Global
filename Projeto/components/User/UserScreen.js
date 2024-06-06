@@ -38,8 +38,8 @@ export default function UserScreen({ navigation }) {
     ];
 
     const quickLinks = [
-        { key: '1', title: 'Meus registros', screen: 'OrderList' },
-        { key: '2', title: 'Nova ocorrência', screen: 'CreateOrder' },
+        { key: '1', title: 'Meus registros', screen: 'MeusRegistros' },
+        { key: '2', title: 'Nova ocorrência', screen: 'FazerRegistro' },
     ];
 
     return (

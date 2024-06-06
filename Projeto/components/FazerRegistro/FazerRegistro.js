@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../Rodape/Footer';
 import estilos from './estilos';
 
-const CreateOrder = ({ route, navigation }) => {
+const FazerRegistro = ({ route, navigation }) => {
   const orderToEdit = route.params?.order;
   const [orderDate, setOrderDate] = useState('');
   const [orderName, setOrderName] = useState('');
@@ -131,4 +131,4 @@ const CreateOrder = ({ route, navigation }) => {
   );
 };
 
-export default CreateOrder;
+export default FazerRegistro;

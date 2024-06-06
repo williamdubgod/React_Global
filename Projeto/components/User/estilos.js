@@ -19,7 +19,7 @@ export default StyleSheet.create({
     headerText: {
         color: '#fff',
         marginTop: 20,
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 'bold',
     },
     userIcon: {
@@ -33,7 +33,7 @@ export default StyleSheet.create({
     logoutButtonIcon: {
         marginTop: 20,
         color: '#fff',
-        fontSize: 24,
+        fontSize: 30,
     },
     profileInfoContainer: {
         padding: 20,
@@ -105,7 +105,7 @@ export default StyleSheet.create({
         color: '#333',
     },
     quickLinkItem: {
-        paddingVertical: 15,
+        paddingVertical: 10,
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
     },

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import estilos from './estilos';
@@ -29,11 +29,11 @@ export default function HomeScreen() {
   }, []);
 
   const handleRegisterPress = () => {
-    navigation.navigate('CreateOrder'); 
+    navigation.navigate('FazerRegistro'); 
   };
 
   const handleRegistrosPress = () => {
-    navigation.navigate('OrderList'); 
+    navigation.navigate('MeusRegistros'); 
   };
 
   return (
@@ -45,19 +45,21 @@ export default function HomeScreen() {
             <Text style={estilos.username}>{userName}</Text>
           </View>
           <TouchableOpacity style={estilos.notificationIcon}>
-            <Icon name="notifications" size={30} color="#62CDFA" />
+            <Icon name="notifications" size={34} color="#62CDFA" />
           </TouchableOpacity>
         </View>
         <CategoryCard
           title="Lixo"
           description="reportar áreas com alta concentração de lixo"
           image={require('../../assets/trash.png')}
+          showButton={true}
           onPress={handleRegisterPress}
         />
         <CategoryCard
           title="Animais"
           description="Reportar animais marinhos presentes na praia"
           image={require('../../assets/fish.png')}
+          showButton={true}
           onPress={handleRegisterPress}
         />
         <TouchableOpacity style={[estilos.myRecordsButton, estilos.shadow]} onPress={handleRegistrosPress}>
