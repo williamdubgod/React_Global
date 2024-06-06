@@ -35,6 +35,10 @@ export default StyleSheet.create({
         color: '#fff',
         fontSize: 30,
     },
+    scrollView: {
+        flex: 1,
+        paddingHorizontal: 10,
+    },
     profileInfoContainer: {
         padding: 20,
         margin: 10,

@@ -44,7 +44,7 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    maxWidth: '85%', 
+    maxWidth: '96%', 
   },
   buttonText: {
     fontSize: 16,

@@ -10,6 +10,7 @@ export default StyleSheet.create({
       pageTitle: {
         fontSize: 32,
         fontWeight: 'bold',
+        marginTop: 40,
         marginBottom: 20,
         color: '#333',
       },

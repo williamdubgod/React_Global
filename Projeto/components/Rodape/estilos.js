@@ -7,7 +7,7 @@ export default StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-around',
       backgroundColor: '#fff',
-      padding: 0.075 * width, 
+      padding: 0.070 * width, 
       position: 'absolute',
       bottom: 0,
       left: 0,
@@ -15,7 +15,6 @@ export default StyleSheet.create({
     },
     iconText: {
       fontSize: 14,
-      marginTop: 5,
       color: '#888',
   },
   activeText: {

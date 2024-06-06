@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { auth } from '../../config/firebase';
 import { Ionicons } from '@expo/vector-icons';
@@ -51,42 +51,42 @@ export default function UserScreen({ navigation }) {
                     <Ionicons name="log-out" style={estilos.logoutButtonIcon} />
                 </TouchableOpacity>
             </View>
+            <ScrollView style={estilos.scrollView}>
+                <View style={estilos.profileInfoContainer}>
+                    <Text style={estilos.profileInfoTitle}>Informações do Perfil</Text>
+                    <Text style={estilos.profileInfoItem}><Text style={estilos.profileInfoLabel}>Nome:</Text> {userName}</Text>
+                    <Text style={estilos.profileInfoItem}><Text style={estilos.profileInfoLabel}>Email:</Text> {userEmail}</Text>
+                </View>
 
-            <View style={estilos.profileInfoContainer}>
-                <Text style={estilos.profileInfoTitle}>Informações do Perfil</Text>
-                <Text style={estilos.profileInfoItem}><Text style={estilos.profileInfoLabel}>Nome:</Text> {userName}</Text>
-                <Text style={estilos.profileInfoItem}><Text style={estilos.profileInfoLabel}>Email:</Text> {userEmail}</Text>
-            </View>
+                <View style={estilos.configurationsContainer}>
+                    <Text style={estilos.configurationsTitle}>Configurações da conta</Text>
+                    <FlatList
+                        data={configurations}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity style={estilos.configurationItem}>
+                                <Text style={estilos.configurationItemText}>{item.title}</Text>
+                            </TouchableOpacity>
+                        )}
+                        keyExtractor={item => item.key}
+                    />
+                </View>
 
-            <View style={estilos.configurationsContainer}>
-                <Text style={estilos.configurationsTitle}>Configurações da conta</Text>
-                <FlatList
-                    data={configurations}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity style={estilos.configurationItem}>
-                            <Text style={estilos.configurationItemText}>{item.title}</Text>
-                        </TouchableOpacity>
-                    )}
-                    keyExtractor={item => item.key}
-                />
-            </View>
-
-            <View style={estilos.quickLinksContainer}>
-                <Text style={estilos.quickLinksTitle}>Atalhos Rápidos</Text>
-                <FlatList
-                    data={quickLinks}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity 
-                            style={estilos.quickLinkItem}
-                            onPress={() => navigation.navigate(item.screen)}
-                        >
-                            <Text style={estilos.quickLinkItemText}>{item.title}</Text>
-                        </TouchableOpacity>
-                    )}
-                    keyExtractor={item => item.key}
-                />
-            </View>
-
+                <View style={estilos.quickLinksContainer}>
+                    <Text style={estilos.quickLinksTitle}>Atalhos Rápidos</Text>
+                    <FlatList
+                        data={quickLinks}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity 
+                                style={estilos.quickLinkItem}
+                                onPress={() => navigation.navigate(item.screen)}
+                            >
+                                <Text style={estilos.quickLinkItemText}>{item.title}</Text>
+                            </TouchableOpacity>
+                        )}
+                        keyExtractor={item => item.key}
+                    />
+                </View>
+            </ScrollView>
             <Footer />
         </View>
     );
